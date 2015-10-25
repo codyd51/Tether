@@ -1,0 +1,9 @@
+Package: com.phillipt.tether
+Name: Tether
+Depends: mobilesubstrate
+Version: 1.0
+Architecture: iphoneos-arm
+Description: a beautiful way to simplify your life
+Maintainer: Phillip Tennen
+Author: Phillip Tennen
+Section: Tweaks
