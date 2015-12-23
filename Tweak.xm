@@ -20,7 +20,7 @@ static void loadPreferences() {
     UITouch* touch = [touches anyObject];
     CGFloat pressure = MSHookIvar<CGFloat>(touch, "_previousPressure");
 
-    CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:[[UIApplication sharedApplication] keyWindow]];
+    CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:((SBIconController*)[%c(SBIconController) sharedInstance]).contentView];
 
     if ([[DGTController sharedInstance] selectionViewIsInvoked]) {
         [[DGTController sharedInstance] selectionViewTouchMovedWithLocation:convertedPoint];
@@ -39,7 +39,7 @@ static void loadPreferences() {
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([[DGTController sharedInstance] selectionViewIsInvoked]) {
         UITouch* touch = [touches anyObject];
-        CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:[[UIApplication sharedApplication] keyWindow]];
+        CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:((SBIconController*)[%c(SBIconController) sharedInstance]).contentView];
         [[DGTController sharedInstance] selectionViewTouchEndedWithLocation:convertedPoint withRecognizer:nil];
     }
 }
@@ -57,7 +57,7 @@ static void loadPreferences() {
     UITouch* touch = [touches anyObject];
     CGFloat pressure = MSHookIvar<CGFloat>(touch, "_previousPressure");
 
-    CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:[[UIApplication sharedApplication] keyWindow]];
+    CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:((SBIconController*)[%c(SBIconController) sharedInstance]).contentView];
 
     if ([[DGTController sharedInstance] selectionViewIsInvoked]) {
         [[DGTController sharedInstance] selectionViewTouchMovedWithLocation:convertedPoint];
@@ -92,7 +92,7 @@ static void loadPreferences() {
 - (void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
     if ([[DGTController sharedInstance] selectionViewIsInvoked]) {
         UITouch* touch = [touches anyObject];
-        CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:[[UIApplication sharedApplication] keyWindow]];
+        CGPoint convertedPoint = [self convertPoint:[touch locationInView:self] toView:((SBIconController*)[%c(SBIconController) sharedInstance]).contentView];
         [[DGTController sharedInstance] selectionViewTouchEndedWithLocation:convertedPoint withRecognizer:nil];
     }
 }
@@ -115,5 +115,5 @@ static void loadPreferences() {
                                 CFNotificationSuspensionBehaviorDeliverImmediately);
     loadPreferences();
 
-    [[NSNotificationCenter defaultCenter] addObserver:[DGTController sharedInstance] selector:@selector(_keyWindowChanged) name:UIWindowDidBecomeKeyNotification object:nil];
+    //[[NSNotificationCenter defaultCenter] addObserver:[DGTController sharedInstance] selector:@selector(_keyWindowChanged) name:UIWindowDidBecomeKeyNotification object:nil];
 }

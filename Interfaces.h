@@ -70,3 +70,8 @@ static int const UITapticEngineFeedbackPop = 1002;
 @end
 #import <AudioToolbox/AudioToolbox.h>
 void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id arg,NSDictionary* vibratePattern);
+
+@interface SBIconController : NSObject
+@property (nonatomic, retain) UIView* contentView;
++(instancetype)sharedInstance;
+@end

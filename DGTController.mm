@@ -24,7 +24,7 @@ void AudioServicesPlaySystemSoundWithVibration(SystemSoundID inSystemSoundID,id 
 }
 +(UIWindow*)mainDeviceView {
 	//return [(FBSceneManager*)[objc_getClass("FBSceneManager") sharedInstance] _rootWindowForDisplay:(FBDisplayManager*)[objc_getClass("FBDisplayManager") mainDisplay]];
-	return [[UIApplication sharedApplication] keyWindow];
+	return ((SBIconController*)[objc_getClass("SBIconController") sharedInstance]).contentView;
 }
 -(instancetype)init {
 	if ((self = [super init])) {
